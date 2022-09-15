@@ -17,7 +17,7 @@
         <div class="container">
             <div class="row">
                 <!-- SIDE CONTACTS -->
-                <section id="side-contacts" class="col-5 p-0 bg-dark ae-90vh ae-mt-5vh d-flex flex-column">
+                <section id="side-contacts" class="col-5 p-0 ae-90vh ae-mt-5vh d-flex flex-column">
                     <!-- USER SECTION -->
                     <div class="p-2 d-flex justify-content-between align-items-center" style="background-color: #eaeaea">
                         <!-- NAME USER -->
@@ -53,15 +53,15 @@
                     </div>
                     <!-- / SEARCH CONTACT -->
                     <!-- LIST CONTACTS -->
-                    <ul class="list-group flex-grow-1" style="background-color: purple">
+                    <ul class="list-group flex-grow-1 rounded-0">
                         <!-- CONTACT -->
-                        <li class="p-2 list-group-item rounded-0 d-flex justify-content-between align-items-center">
+                        <li v-for="contact in contacts" class="p-2 list-group-item rounded-0 d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
                                 <figure class="m-0">
-                                    <img class="img-fluid rounded-5" src="img/avatar_1.jpg" alt="">
+                                    <img class="img-fluid rounded-5" :src="`img/avatar${contact.avatar}.jpg`" alt="">
                                 </figure>
                                 <figcaption class="ms-2 align-self-start">
-                                    <h6 class="m-0">Michele</h6>
+                                    <h6 class="m-0">{{ contact.name }}</h6>
                                     <p style="font-size: 0.7em; color: #c8c6c7;" class="m-0">Ultimo messaggio inviato</p>
                                 </figcaption>
                             </div>
