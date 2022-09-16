@@ -7,6 +7,7 @@ const app = new Vue(
 
             searchContactInput: '',
             resultContactSearch: '',
+            activeIndex: 0,
 
             contacts: [
                 {
@@ -189,8 +190,13 @@ const app = new Vue(
                 //     this.resultContactSearch
                 // }
 
-            }
+            },
 
+            setActiveElement(index){
+
+                this.activeIndex = index
+
+            }
         },
 
         //  mounted(){
@@ -198,6 +204,7 @@ const app = new Vue(
         //     this.resultContactSearch = this.contacts
             
         //  },
+        
 
     }
 )
