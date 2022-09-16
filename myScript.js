@@ -5,6 +5,9 @@ const app = new Vue(
         el: '#root',
         data: {
 
+            searchContactInput: '',
+            resultContactSearch: '',
+
             contacts: [
                 {
                 name: 'Michele',
@@ -172,7 +175,27 @@ const app = new Vue(
         },
         methods: {
 
+            findContact(){
+                
+                this.resultContactSearch= this.contacts.filter(singleContact => singleContact.name.toLowerCase().includes(this.searchContactInput.toLowerCase()));
+                if(this.searchContactInput === ''){
+
+                    this.resultContactSearch = this.contacts
+
+                }
+                else{
+                    this.resultContactSearch
+                }
+
+            }
+
         },
+
+         mounted(){
+
+            this.resultContactSearch = this.contacts
+            
+         },
 
     }
 )
