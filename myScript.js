@@ -199,10 +199,9 @@ const app = new Vue(
             }
         },
 
-        //  mounted(){
+        // mounted(){
 
         //     this.resultContactSearch = this.contacts
-            
         //  },
         
 
