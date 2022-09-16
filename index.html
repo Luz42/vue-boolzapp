@@ -55,7 +55,7 @@
                     <!-- LIST CONTACTS -->
                     <ul class="list-group flex-grow-1 rounded-0">
                         <!-- CONTACT -->
-                        <li v-for="contact in resultContactSearch" class="p-2 list-group-item rounded-0 d-flex justify-content-between align-items-center">
+                        <li v-for="contact in contacts" class="p-2 list-group-item rounded-0 d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
                                 <figure class="m-0">
                                     <img class="img-fluid rounded-5" :src="`img/avatar${contact.avatar}.jpg`" alt="">
@@ -72,7 +72,25 @@
                 </section>
                 <!-- / SIDE CONTACTS -->
                 <!-- SIDE MESSAGE -->
-                <aside class="col-7  bg-secondary"></aside>
+                <aside class="col-7 p-0 bg-secondary d-flex flex-column">
+                    <!-- OPEN CHAT -->
+                    <div class="p-2 d-flex justify-content-between align-items-center" style="background-color: #eaeaea">
+                        <!-- PROFILE CONTACT -->
+                        <div class="d-flex align-items-center">
+                            <img class=" rounded-5 img-fluid" src="img/avatar_io.jpg" alt="My Avatar">
+                            <h6 class="ps-1 m-0">Sofia</h6>
+                        </div>
+                        <!-- / PROFILE CONTACT -->
+                        <!-- ICONS -->
+                        <div class="d-flex">
+                            <i class="px-1 bi bi-search"></i>
+                            <i class="px-1 bi bi-paperclip"></i>
+                            <i class="px-1 bi bi-three-dots-vertical"></i>
+                        </div>
+                        <!-- / ICONS -->
+                    </div>
+                    <!-- / OPEN CHAT -->
+                </aside>
                 <!-- / SIDE MESSAGE -->
             </div>
         </div>

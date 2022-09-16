@@ -174,28 +174,30 @@ const app = new Vue(
 
         },
         methods: {
-
+            //STAND-BY
             findContact(){
+                let thisArg
+                this.resultContactSearch= this.contacts.filter(singleContact => singleContact.name.toLowerCase().includes(this.searchContactInput.toLowerCase()), thisArg);
                 
-                this.resultContactSearch= this.contacts.filter(singleContact => singleContact.name.toLowerCase().includes(this.searchContactInput.toLowerCase()));
-                if(this.searchContactInput === ''){
+                console.log(this.resultContactSearch, thisArg)
+                // if(this.searchContactInput === ''){
 
-                    this.resultContactSearch = this.contacts
+                //     this.resultContactSearch = this.contacts
 
-                }
-                else{
-                    this.resultContactSearch
-                }
+                // }
+                // else{
+                //     this.resultContactSearch
+                // }
 
             }
 
         },
 
-         mounted(){
+        //  mounted(){
 
-            this.resultContactSearch = this.contacts
+        //     this.resultContactSearch = this.contacts
             
-         },
+        //  },
 
     }
 )
