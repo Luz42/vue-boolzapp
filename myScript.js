@@ -200,23 +200,49 @@ const app = new Vue(
             },
 
             getMessageHour(date){
-
+                
                 const fullHour = date.split(" ")
-                return onlyHour = fullHour[1].slice(0, -3)
-
+                let onlyHour = fullHour[1].slice(0, -3)
+                return onlyHour
             },
 
             sendMessage(contactMessages){
 
                 contactMessages.push(
                     {
-                    date: '10/01/2020 15:50:00',
+                    date: this.getNowDate(),
                     message: this.newMessage,
                     status: 'sent'
                     },
                 );
                     this.newMessage = ''
             },
+
+            getNowDate(){
+
+                const date = new Date();
+
+                const hours = date.getHours()
+                const minutes = this.getZeroBeforeSingleNumber(date.getMinutes())
+                const seconds =  this.getZeroBeforeSingleNumber(date.getSeconds())
+                const day = this.getZeroBeforeSingleNumber(date.getDate())
+                const month = this.getZeroBeforeSingleNumber(date.getMonth() + 1)
+                const year = date.getFullYear()
+                
+                return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`
+
+            },
+
+            getZeroBeforeSingleNumber(number){
+                let fixNumber
+                if(number < 10 ){
+                    fixNumber = '0' + number
+                }
+                else{
+                    fixNumber = number
+                }
+                return fixNumber
+            }
 
         },
 
