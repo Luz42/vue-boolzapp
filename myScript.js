@@ -8,6 +8,7 @@ const app = new Vue(
             searchContactInput: '',
             resultContactSearch: '',
             activeIndex: 0,
+            newMessage:'',
 
             contacts: [
                 {
@@ -203,7 +204,20 @@ const app = new Vue(
                 const fullHour = date.split(" ")
                 return onlyHour = fullHour[1].slice(0, -3)
 
-            }
+            },
+
+            sendMessage(contactMessages){
+
+                contactMessages.push(
+                    {
+                    date: '10/01/2020 15:50:00',
+                    message: this.newMessage,
+                    status: 'sent'
+                    },
+                );
+                    this.newMessage = ''
+            },
+
         },
 
         // mounted(){
