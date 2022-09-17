@@ -245,16 +245,20 @@ const app = new Vue(
                 //this.resultContactSearch= this.contacts.filter(singleContact => singleContact.name.toLowerCase().includes(this.searchContactInput.toLowerCase()));
                 
                 this.contacts.forEach((contact, index)=> {
-                    console.log(this.searchContactInput)
-                    if (this.searchContactInput && contact.name.toLowerCase().includes(this.searchContactInput.toLowerCase())){
-                        console.log(contact.name)
-                        contact.visible = false
-                        console.log('il visible di', contact.name,'alla posizione ',index, 'diventa =',contact.visible)
-                    }else
+                    //console.log(this.searchContactInput)
+                    if(this.searchContactInput === ''){
                         contact.visible = true
+                    }
+                    else if (this.searchContactInput && contact.name.toLowerCase().includes(this.searchContactInput.toLowerCase())){
+                        //console.log(contact.name)
+                        contact.visible = true
+                        //console.log('il visible di', contact.name,'alla posizione ',index, 'diventa =',contact.visible)
+                    }
+                    else
+                        contact.visible = false
                     });
         
-                    console.log(this.contacts)
+                    //console.log(this.contacts)
                 
                 //si assegna la classe visibile a questi elementi        
             },
