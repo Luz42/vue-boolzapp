@@ -208,26 +208,28 @@ const app = new Vue(
 
             sendMessage(contactMessages){
                 //nei messaggi del contatto con indexActive viene pushato il nuovo oggetto (messaggio)
-                contactMessages.push(
-                    {
-                    date: this.getNowDate(),
-                    message: this.newMessage,
-                    status: 'sent'
-                    },
-                );
-                    
-                this.newMessage = '';
-                //viene creato un messaggio di risposta all'esterno della funzione setTimeOut
-                //in modo che possa ricevere il valore della funzione getNowDate
-                // ***** CONVIENE INSERIRLO IN DATA? *****
-                const replyMessage = {
-                    date: this.getNowDate(),
-                    message: 'Ok!',
-                    status: 'received'
-                };
+                
+                if(this.newMessage !== ''){
+                    contactMessages.push(
+                        {
+                        date: this.getNowDate(),
+                        message: this.newMessage,
+                        status: 'sent'
+                        },
+                    );
+                        
+                    this.newMessage = '';
+                    //viene creato un messaggio di risposta all'esterno della funzione setTimeOut
+                    //in modo che possa ricevere il valore della funzione getNowDate
+                    // ***** CONVIENE INSERIRLO IN DATA? *****
+                    const replyMessage = {
+                        date: this.getNowDate(),
+                        message: 'Ok!',
+                        status: 'received'
+                    };
 
-                setTimeout(function(){contactMessages.push(replyMessage)}, 1000)
-
+                    setTimeout(function(){contactMessages.push(replyMessage)}, 1000)
+                }   
             },
 
             getNowDate(){
