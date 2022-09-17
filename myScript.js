@@ -196,6 +196,13 @@ const app = new Vue(
 
                 this.activeIndex = index
 
+            },
+
+            getMessageHour(date){
+
+                const fullHour = date.split(" ")
+                return onlyHour = fullHour[1].slice(0, -3)
+
             }
         },
 
