@@ -201,13 +201,13 @@ const app = new Vue(
 
             getMessageHour(date){
                 
-                const fullHour = date.split(" ")
-                let onlyHour = fullHour[1].slice(0, -3)
+                const fullDate = date.split(" ")
+                let onlyHour = fullDate[1].slice(0, -3)
                 return onlyHour
             },
 
             sendMessage(contactMessages){
-
+                //nei messaggi del contatto con indexActive viene pushato il nuovo oggetto (messaggio)
                 contactMessages.push(
                     {
                     date: this.getNowDate(),
@@ -215,7 +215,19 @@ const app = new Vue(
                     status: 'sent'
                     },
                 );
-                    this.newMessage = ''
+                    
+                this.newMessage = '';
+                //viene creato un messaggio di risposta all'esterno della funzione setTimeOut
+                //in modo che possa ricevere il valore della funzione getNowDate
+                // ***** CONVIENE INSERIRLO IN DATA? *****
+                const replyMessage = {
+                    date: this.getNowDate(),
+                    message: 'Ok!',
+                    status: 'received'
+                };
+
+                setTimeout(function(){contactMessages.push(replyMessage)}, 1000)
+
             },
 
             getNowDate(){
@@ -234,13 +246,9 @@ const app = new Vue(
             },
 
             getZeroBeforeSingleNumber(number){
-                let fixNumber
-                if(number < 10 ){
-                    fixNumber = '0' + number
-                }
-                else{
-                    fixNumber = number
-                }
+
+                let fixNumber = number < 10 ? '0' + number : number
+                
                 return fixNumber
             }
 
