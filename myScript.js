@@ -242,29 +242,24 @@ const app = new Vue(
             findContact(){
                 //si da una classe che nasconda tutti i contatti (v-show?)
                 //si effettua la ricerca
-                this.resultContactSearch= this.contacts.filter(singleContact => singleContact.name.toLowerCase().includes(this.searchContactInput.toLowerCase()));
-                //degli elementi filtrati bisogna ricavare l'index
-                //si assegna la classe visibile a questi elementi
-
-                console.log(this.resultContactSearch)
-                // if(this.searchContactInput === ''){
-
-                //     this.resultContactSearch = this.contacts
-
-                // }
-                // else{
-                //     this.resultContactSearch
-                // }
-
+                //this.resultContactSearch= this.contacts.filter(singleContact => singleContact.name.toLowerCase().includes(this.searchContactInput.toLowerCase()));
+                
+                this.contacts.forEach((contact, index)=> {
+                    console.log(this.searchContactInput)
+                    if (this.searchContactInput && contact.name.toLowerCase().includes(this.searchContactInput.toLowerCase())){
+                        console.log(contact.name)
+                        contact.visible = false
+                        console.log('il visible di', contact.name,'alla posizione ',index, 'diventa =',contact.visible)
+                    }else
+                        contact.visible = true
+                    });
+        
+                    console.log(this.contacts)
+                
+                //si assegna la classe visibile a questi elementi        
             },
 
         },
-
-        // mounted(){
-
-        //     this.resultContactSearch = this.contacts
-        //  },
-        
 
     }
 )
