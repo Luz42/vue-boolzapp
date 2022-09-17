@@ -176,23 +176,7 @@ const app = new Vue(
 
         },
         methods: {
-            //STAND-BY
-            findContact(){
-                let thisArg
-                this.resultContactSearch= this.contacts.filter(singleContact => singleContact.name.toLowerCase().includes(this.searchContactInput.toLowerCase()), thisArg);
-                
-                console.log(this.resultContactSearch, thisArg)
-                // if(this.searchContactInput === ''){
-
-                //     this.resultContactSearch = this.contacts
-
-                // }
-                // else{
-                //     this.resultContactSearch
-                // }
-
-            },
-
+            
             setActiveElement(index){
 
                 this.activeIndex = index
@@ -252,7 +236,27 @@ const app = new Vue(
                 let fixNumber = number < 10 ? '0' + number : number
                 
                 return fixNumber
-            }
+            },
+
+            //STAND-BY
+            findContact(){
+                //si da una classe che nasconda tutti i contatti (v-show?)
+                //si effettua la ricerca
+                this.resultContactSearch= this.contacts.filter(singleContact => singleContact.name.toLowerCase().includes(this.searchContactInput.toLowerCase()));
+                //degli elementi filtrati bisogna ricavare l'index
+                //si assegna la classe visibile a questi elementi
+
+                console.log(this.resultContactSearch)
+                // if(this.searchContactInput === ''){
+
+                //     this.resultContactSearch = this.contacts
+
+                // }
+                // else{
+                //     this.resultContactSearch
+                // }
+
+            },
 
         },
 
