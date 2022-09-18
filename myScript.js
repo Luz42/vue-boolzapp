@@ -238,7 +238,6 @@ const app = new Vue(
                 return fixNumber
             },
 
-            //STAND-BY
             findContact(){
                 //si da una classe che nasconda tutti i contatti (v-show?)
                 //si effettua la ricerca
@@ -262,6 +261,15 @@ const app = new Vue(
                 
                 //si assegna la classe visibile a questi elementi        
             },
+
+            // getLastMessage(messages){
+            //     let i = 0
+            //     i++
+            //     console.log('il contatto',i,'ha', messages.length, 'messaggi')
+            //     console.log(messages[messages.length-1].message)
+            //     return messages[messages.length-1].message
+
+            // }
 
         },
 

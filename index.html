@@ -63,10 +63,10 @@
                                     </figure>
                                     <figcaption class="ms-2 align-self-start">
                                         <h6 class="m-0">{{ contact.name }}</h6>
-                                        <p style="font-size: 0.7em; color: #afafaf;" class="m-0">Ultimo messaggio inviato</p>
+                                        <p style="font-size: 0.7em; color: #afafaf;" class="m-0">{{ contact.messages[contact.messages.length-1].message }}</p>
                                     </figcaption>
                                 </div>
-                                <time class="align-self-start" style="font-size: 0.7em; color: #afafaf;">12:00</time>
+                                <time class="align-self-start" style="font-size: 0.7em; color: #afafaf;">{{ getMessageHour(contact.messages[contact.messages.length-1].date) }}</time>
                             </div>
                         </li>
                         <!-- / CONTACT -->
