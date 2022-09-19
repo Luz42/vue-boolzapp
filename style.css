@@ -41,3 +41,8 @@ i.px-1.bi{
 .col-auto.p-1.rounded-3.d-flex.align-items-center:hover .btn.p-0.border-0{
     visibility: visible !important;
 }
+
+.ae-bg-send-message .dropdown-menu.top-100{
+    right: 0 !important;
+}
+

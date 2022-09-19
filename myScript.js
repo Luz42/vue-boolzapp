@@ -270,6 +270,34 @@ const app = new Vue(
             //     return messages[messages.length-1].message
 
             // }
+            showMessageMenu(index){
+                //this.showMenu = !this.showMenu
+
+                const activeMenu = document.querySelector('.btn-group .dropdown-menu.d-block')
+                //console.log(document.querySelector('.menu' + index))
+                const menuToShow = document.querySelector('.menu' + index)
+                //const menuVisible = document.querySelector('.menu' + index).classList.add('d-block')
+                //console.log('questo è il menu attivo',activeMenu, 'questo quello da attivare' ,menuToShow)
+                if (activeMenu === menuToShow){
+
+                    activeMenu.classList.remove('d-block') 
+
+                }
+                else if(!activeMenu)
+                {
+                    menuToShow.classList.add('d-block')
+                    
+                }
+                else if(activeMenu !== menuToShow){
+
+                    activeMenu.classList.remove('d-block')
+                    menuToShow.classList.add('d-block')
+
+                }        
+                //const messageMenu = document.querySelector('.dropdown-menu')
+                //messageMenu.classList.add('d-block')
+
+            }
 
         },
 
